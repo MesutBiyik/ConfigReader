@@ -23,8 +23,7 @@ public class Main {
 
         //Find the memory used in wrapper
         List<String> wrapperMemory = readWrapperConfigFile(wrapperFile);
-        //Find the memory in the WaiterMate JNLP
-        //List<String> waitermateMemory = readJNLPFile(waitermateJNLP);
+
         setupGUI(wrapperMemory);
 
     }
@@ -34,10 +33,14 @@ public class Main {
 
         JPanel thePanel = new JPanel();
         JFrame frame = new JFrame();
+        JTextField fileLocation = new JTextField();
+
+        //Configure File location textfield
+        fileLocation.setLocation(60,60);
+
 
         //Configure Open button
         JButton openDir = new JButton("Open Dir");
-
         openDir.setSize(20,20);
 
         //On button click open file
@@ -58,7 +61,6 @@ public class Main {
 
         frame.setTitle("Show Wrapper memory");
 
-
         String memory = data.toString();
         //String memory1 = data1.toString();
 
@@ -66,9 +68,12 @@ public class Main {
         //JLabel waitermateMemory = new JLabel(memory1);
 
         servermateMemory.setLocation(50,100);
+
+
+        //Add all GUIs to frame
         thePanel.add(servermateMemory);
-        //thePanel.add(waitermateMemory);
         thePanel.add(openDir);
+        thePanel.add(fileLocation);
         frame.add(thePanel);
 
 
